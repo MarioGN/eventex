@@ -19,8 +19,13 @@ class SubscriptionModelTest(TestCase):
         self.assertTrue(Subscription.objects.exists())
 
     def test_create_at(self):
-        """Subscription must have an auto created_at attr"""
+        """Subscription must have an auto created_at att    r"""
         self.assertIsInstance(self.obj.created_at, datetime)
 
     def test_str(self):
         self.assertEqual('Mario Neto', str(self.obj))
+
+    def test_paid_default_to_False(self):
+        """By default paid must to be False."""
+        self.assertEqual(False, self.obj.paid)
+
